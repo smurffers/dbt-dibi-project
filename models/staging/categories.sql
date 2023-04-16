@@ -6,7 +6,7 @@ with fixed as (
   JSON_EXTRACT_SCALAR(categories, '$.description') as categories_name,
   CAST(JSON_QUERY(categories, '$.id') as integer) as categories_id
 
-  from `steam-data-engineering-gcp`.`steam_raw`.`steam_store_data`,
+  from {{source('raw', 'steam_store_data')}},
     unnest(json_query_array(categories)) as categories
 )
 
