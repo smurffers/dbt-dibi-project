@@ -4,17 +4,17 @@ sources :
 
     - name: raw
       description: aaaa
-      database: steam-data-engineering-gcp
+      database: dibi-cloud-project
       schema: steam_raw
       tables: 
         - name : steam_spy_scrap
         - name : steam_store_data
         - name : steam_dlc_data
-        - name : steam_reviews
+        # - name : steam_reviews
 
     - name: staging
       description: aaa
-      database: steam-data-engineering-gcp
+      database: dibi-cloud-project
       schema: dbt_development
       tables: 
         - name : categories
@@ -37,18 +37,18 @@ models:
           - unique
           - not_null
 
-  - name: steam_reviews
-    columns: 
-      - name: author_steamid
-        tests: 
-          - not_null
-      - name: gameid
-        tests: 
-          - not_null
-      - name: reviewid
-        tests: 
-          - not_null
-          - unique
+  # - name: steam_reviews
+  #   columns: 
+  #     - name: author_steamid
+  #       tests: 
+  #         - not_null
+  #     - name: gameid
+  #       tests: 
+  #         - not_null
+  #     - name: reviewid
+  #       tests: 
+  #         - not_null
+  #         - unique
 
   - name: steam_dlc_data
     columns:
